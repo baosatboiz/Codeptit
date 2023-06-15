@@ -2,14 +2,17 @@
 #include <string.h>
 int check(char x[],char tmp[]){
 	if(strlen(x)!=strlen(tmp)) return 0;           //Neu ket qua co chieu dai khac voi so ban dau thi return
-	int i,j,k;
-	for(i=0;i<strlen(tmp);i++) if(tmp[i]==x[0]) { j=i; break;}        //Tim vi tri cua chu so dau tien
+	int i,j,k=0,test=0;
+	for(i=0;i<strlen(tmp);i++) if(tmp[i]==x[0]) {test=1; j=i; break;}        //Tim vi tri cua chu so dau tien (j)
+	if(test==0) return 0;
 	i=j+1;                                                                              
+	   
 	   if(i<strlen(tmp)) {for(k=1;k<=strlen(tmp)-j;k++) if(tmp[i]!=x[k]) return 0; //Kiem tra cac chu so sau co giong ban dau khong 
-	   else {i++; if(i>=strlen(tmp)) break;}}
+	   else {i++; if(i>=strlen(tmp)) break;}}                                      //Kiem tra cac chu so tu j+1 den so cuoi cung cua tmp
 	i=0;
 	for(k=k+1;k<strlen(tmp);k++) 
-	if(tmp[i]!=x[k]) return 0; else {i++; if(i>=j) break;	}
+	if(tmp[i]!=x[k]) return 0; 
+	 else {i++; if(i>=j) break;	}       //Kiem tra cac so tu 0-> j-1 cua tmp co giong ban dau khong
 	return 1;
 }
 int nhan(char x[],int i){            //thuc hien nhan so nguyen lon 

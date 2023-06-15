@@ -36,7 +36,7 @@ int binarysearch(long long a[],int x,int N){      //Thuat toan tim kiem nhi phan
 }
 void xuat(long long a[],int N){                                 //In YES NO ra man hinh  
 	int i,j,k;
-	for(i=0;i<N;i++) 
+	for(i=0;i<N-1;i++) 
 	    for(j=i+1;j<N;j++){
 	        long long testnum= a[i]*a[i]+a[j]*a[j];  
 	        k= (int)sqrt(testnum);                                  
